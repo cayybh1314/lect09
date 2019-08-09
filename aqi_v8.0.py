@@ -24,7 +24,7 @@ def get_city_aqi(city_pinyin):
         获取诚实的AQI
     """
     url = 'http://pm25.in/' + city_pinyin
-    r = requests.get(url, timeout=30)
+    r = requests.get(url, timeout=3000)
     soup = BeautifulSoup(r.text, 'lxml')
     div_list = soup.find_all('div', {'class': 'span1'})
 
@@ -43,7 +43,7 @@ def get_all_cities():
     """
     url = 'http://pm25.in/'
     city_list = []
-    r = requests.get(url, timeout = 30)##使用get方法打开URL，超时时间30
+    r = requests.get(url, timeout = 3000)##使用get方法打开URL，超时时间30
 
     ##创建beautifulsoup对象
     soup = BeautifulSoup(r.text, 'lxml')##r.text爬虫获取的文本，lxml是解析器
@@ -82,7 +82,6 @@ def main():
             city_aqi = get_city_aqi(city_pinyin)
             row = [city_name] + city_aqi
             writer.writerow(row)
-
 
 if __name__ == '__main__':
     main()
