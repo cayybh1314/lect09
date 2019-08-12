@@ -4,12 +4,7 @@
     version:10.0 数据清洗
 """
 
-##导包
-import requests
-from bs4 import BeautifulSoup
-import json
-import csv
-import os
+##导入数据分析包
 import pandas as pd
 import matplotlib.pyplot as plt
 
